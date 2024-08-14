@@ -12,7 +12,7 @@ import com.example.artapp.ui.ImageAndText
 @Composable
 fun Artapp(){
     var currentstep by remember { mutableStateOf(1) }
-    var backstep by remember { mutableStateOf(1) }
+    var backstep by remember { mutableStateOf(5) }
 
     when (currentstep) {
         1 ->{
@@ -26,7 +26,7 @@ fun Artapp(){
              nextImageClick = {
                  currentstep = 2 },
              lastImageClick = {
-                 backstep = 5
+
              })
         }
         2 ->{
