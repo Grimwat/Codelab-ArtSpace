@@ -5,13 +5,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.artapp.R
 import com.example.artapp.ui.ImageAndText
 
 @Composable
 fun Artapp(){
     var currentstep by remember { mutableStateOf(1) }
-    var backstep by remember { mutableStateOf(0) }
+    var backstep by remember { mutableStateOf(1) }
 
     when (currentstep) {
         1 ->{
@@ -25,7 +26,7 @@ fun Artapp(){
              nextImageClick = {
                  currentstep = 2 },
              lastImageClick = {
-                 backstep = 0
+                 backstep = 5
              })
         }
         2 ->{
@@ -86,5 +87,13 @@ fun Artapp(){
 
 
 
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    ArtAppTheme {
+        Artapp()
     }
 }
