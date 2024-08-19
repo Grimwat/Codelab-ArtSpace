@@ -26,7 +26,7 @@ fun Artapp(){
              nextImageClick = {
                  currentstep = 2 },
              lastImageClick = {
-
+                 backstep = 5
              })
         }
         2 ->{
