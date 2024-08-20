@@ -11,9 +11,9 @@ import com.example.artapp.ui.ImageAndText
 
 @Composable
 fun Artapp() {
-    var currentstep by remember { mutableStateOf(1) }
+    var currentStep by remember { mutableStateOf(1) }
 
-    when (currentstep) {
+    when (currentStep) {
         1 -> {
             ImageAndText(
                 textLabelResourceId = R.string.Danger,
@@ -23,10 +23,12 @@ fun Artapp() {
                 nextResourceId = R.drawable.next,
                 lastResourceId = R.drawable.back,
                 nextImageClick = {
-                    onnexttap(currentstep)
+                    currentStep =
+                    onNextTap(currentStep)
                 },
                 previousimageclick = {
-                    onprevioustap(currentstep)
+                    currentStep =
+                    onPreviousTap(currentStep)
                 }
             )
         }
@@ -40,10 +42,12 @@ fun Artapp() {
                 nextResourceId = R.drawable.next,
                 lastResourceId = R.drawable.back,
                 nextImageClick = {
-                    onnexttap(currentstep)
+                    currentStep =
+                    onNextTap(currentStep)
                 },
                 previousimageclick = {
-                    onprevioustap(currentstep)
+                    currentStep =
+                    onPreviousTap(currentStep)
                 })
         }
 
@@ -56,10 +60,12 @@ fun Artapp() {
                 nextResourceId = R.drawable.next,
                 lastResourceId = R.drawable.back,
                 nextImageClick = {
-                    onnexttap(currentstep)
+                    currentStep =
+                    onNextTap(currentStep)
                 },
                 previousimageclick = {
-                    onprevioustap(currentstep)
+                    currentStep =
+                    onPreviousTap(currentStep)
                 })
         }
 
@@ -72,10 +78,12 @@ fun Artapp() {
                 nextResourceId = R.drawable.next,
                 lastResourceId = R.drawable.back,
                 nextImageClick = {
-                    onnexttap(currentstep)
+                    currentStep =
+                    onNextTap(currentStep)
                 },
                 previousimageclick = {
-                    onprevioustap(currentstep)
+                    currentStep =
+                    onPreviousTap(currentStep)
                 })
         }
 
@@ -88,29 +96,30 @@ fun Artapp() {
                 nextResourceId = R.drawable.next,
                 lastResourceId = R.drawable.back,
                 nextImageClick = {
-                    onnexttap(currentstep)
+                    currentStep =
+                    onNextTap(currentStep)
                 },
                 previousimageclick = {
-                    onprevioustap(currentstep)
+                    currentStep =
+                    onPreviousTap(currentStep)
                 })
         }
     }
 }
 
-private fun onnexttap(currentstep: Int): Int {
-    return if (currentstep == 5) {
+private fun onNextTap(currentStep: Int): Int {
+    return if (currentStep == 5) {
         1
     } else {
-        currentstep + 1
+        currentStep + 1
     }
 }
 
-private fun onprevioustap(currentstep: Int) {
-    var currentstep1 = currentstep
-    if (currentstep1 == 1) {
-        currentstep1 = 5
+private fun onPreviousTap(currentStep: Int):Int {
+    return if (currentStep == 1) {
+        5
     } else {
-        currentstep1 - 1
+        currentStep - 1
     }
 }
 
