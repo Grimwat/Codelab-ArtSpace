@@ -10,68 +10,76 @@ import com.example.artapp.R
 import com.example.artapp.ui.ImageAndText
 
 @Composable
-fun Artapp(){
+fun Artapp() {
     var currentstep by remember { mutableStateOf(1) }
-    var backstep by remember { mutableStateOf(5) }
 
     when (currentstep) {
-        1 ->{
-         ImageAndText(
-             textLabelResourceId = R.string.Danger,
-             drawableResourceId = R.drawable.lukla,
-             contentDescriptionResourceId = R.string.Plane,
-             titleLabelResourceId = R.string.TAirport,
-             nextResourceId = R.drawable.next,
-             lastResourceId = R.drawable.back,
-             nextImageClick = {
-                 currentstep = 2 },
-             lastImageClick = {
-                 backstep = 5
-             })
+        1 -> {
+            ImageAndText(
+                textLabelResourceId = R.string.Danger,
+                drawableResourceId = R.drawable.lukla,
+                contentDescriptionResourceId = R.string.Plane,
+                titleLabelResourceId = R.string.TAirport,
+                nextResourceId = R.drawable.next,
+                lastResourceId = R.drawable.back,
+                nextImageClick = {
+                    onnexttap(currentstep)
+                },
+                previousimageclick = {
+                    onprevioustap(currentstep)
+                }
+            )
         }
-        2 ->{
+
+        2 -> {
             ImageAndText(
                 textLabelResourceId = R.string.water,
                 drawableResourceId = R.drawable.river,
                 contentDescriptionResourceId = R.string.Country,
-                titleLabelResourceId = R.string.TWater ,
+                titleLabelResourceId = R.string.TWater,
                 nextResourceId = R.drawable.next,
                 lastResourceId = R.drawable.back,
                 nextImageClick = {
-                    currentstep = 3 },
-                lastImageClick = {
-                    backstep = 1
+                    onnexttap(currentstep)
+                },
+                previousimageclick = {
+                    onprevioustap(currentstep)
                 })
         }
-        3 ->{
+
+        3 -> {
             ImageAndText(
                 textLabelResourceId = R.string.heat,
                 drawableResourceId = R.drawable.solar,
                 contentDescriptionResourceId = R.string.Hotwater,
-                titleLabelResourceId = R.string.THeating ,
+                titleLabelResourceId = R.string.THeating,
                 nextResourceId = R.drawable.next,
                 lastResourceId = R.drawable.back,
                 nextImageClick = {
-                    currentstep = 4 },
-                lastImageClick = {
-                    backstep = 2
+                    onnexttap(currentstep)
+                },
+                previousimageclick = {
+                    onprevioustap(currentstep)
                 })
         }
-        4 ->{
+
+        4 -> {
             ImageAndText(
                 textLabelResourceId = R.string.zopchock,
                 drawableResourceId = R.drawable.zopchock,
                 contentDescriptionResourceId = R.string.Trail,
-                titleLabelResourceId = R.string.TCow ,
+                titleLabelResourceId = R.string.TCow,
                 nextResourceId = R.drawable.next,
                 lastResourceId = R.drawable.back,
                 nextImageClick = {
-                    currentstep = 5 },
-                lastImageClick = {
-                    backstep = 3
+                    onnexttap(currentstep)
+                },
+                previousimageclick = {
+                    onprevioustap(currentstep)
                 })
         }
-        5 ->{
+
+        5 -> {
             ImageAndText(
                 textLabelResourceId = R.string.buddhist,
                 drawableResourceId = R.drawable.mane,
@@ -80,13 +88,29 @@ fun Artapp(){
                 nextResourceId = R.drawable.next,
                 lastResourceId = R.drawable.back,
                 nextImageClick = {
-                                 currentstep = 1
+                    onnexttap(currentstep)
                 },
-                lastImageClick = { backstep = 4 })
+                previousimageclick = {
+                    onprevioustap(currentstep)
+                })
         }
+    }
+}
 
+private fun onnexttap(currentstep: Int): Int {
+    return if (currentstep == 5) {
+        1
+    } else {
+        currentstep + 1
+    }
+}
 
-
+private fun onprevioustap(currentstep: Int) {
+    var currentstep1 = currentstep
+    if (currentstep1 == 1) {
+        currentstep1 = 5
+    } else {
+        currentstep1 - 1
     }
 }
 

@@ -29,7 +29,7 @@ fun ImageAndText(
     nextResourceId: Int,
     lastResourceId: Int,
     nextImageClick: () -> Unit,
-    lastImageClick: () -> Unit,
+    previousimageclick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -58,7 +58,7 @@ fun ImageAndText(
                 modifier = modifier
             ) {
                 Button(
-                    onClick = lastImageClick,
+                    onClick = previousimageclick,
                     modifier = Modifier.weight(1f) ) {
                     Image(
                         painter = painterResource(lastResourceId),
